@@ -43,7 +43,17 @@
                         <div class="form-group">
                             <label for="role" class="col-md-4 control-label">Role</label>
                             <div class="col-md-6">
-                                <select name="role"></select>
+                                <select name="role_id" class="form-control{{ $errors->has('role_id') ? ' has-error' : '' }}" required>
+                                    <option value="">--Select Role--</option>
+                                    @foreach ($roles as $role)
+                                        <option value="{{$role->id}}">{{$role->role}}</option>
+                                    @endforeach
+                                </select>
+                                @if ($errors->has('role_id'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('role_id') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
 
