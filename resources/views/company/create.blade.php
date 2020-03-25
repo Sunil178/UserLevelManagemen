@@ -19,8 +19,8 @@
 
         @endif
 
-        <form action="{{ route('revenue.store') }}" enctype="multipart/form-data" class="form" method="POST">
-            @csrf
+        <form action="{{ route('company.store') }}" class="form" method="POST">
+            {{ csrf_field() }}
             <div class="form-group">
                 <label for="title" class="">Company Registered Name:</label>
                 <input type="text" name="company_registered_name" id="title" class="form-control">
@@ -29,6 +29,9 @@
                 <label for="title" class="">Brand Name:</label>
                 <input type="text" name="brand_name" id="title" class="form-control">
             </div>
+          <div class="form-group">
+             <input type="submit" class="form-control" value="Submit">
+        </div>
         </form>
     </div>
 </div>

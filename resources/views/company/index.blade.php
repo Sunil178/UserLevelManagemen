@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="d-flex justify-content-end mb-2">
-    <a href="{{ route('categories.create') }}" class="btn btn-success">Add Revenue</a>
+    <a href="{{ route('company.create') }}" class="btn btn-success">Add Company</a>
 </div>
 
 <div class="card card-default">
@@ -12,7 +12,8 @@
     <div class="card-body">
         <table class="table">
             <thead>
-                <th>Name:</th>
+                <th>Company Registered Name:</th>
+                <th>Brand Name:</th>
             </thead>
             <tbody>
                 @foreach($company as $companies)

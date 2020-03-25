@@ -38,7 +38,7 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
         //
-        Revenue::create([
+        Company::create([
         'company_registered_name' => $request->company_registered_name,
         'brand_name' => $request->brand_name,
         ]);
