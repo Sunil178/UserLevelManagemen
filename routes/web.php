@@ -17,4 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::resource('/role', 'RoleController');
+Route::resource('/permission', 'PermissionController')->middleware('auth');
+Route::resource('/role-permission', 'RolePermissionController')->middleware('auth');
+
 Route::get('/home', 'HomeController@index')->name('home');

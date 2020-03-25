@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Role;
 use Illuminate\Http\Request;
+use redirect;
 
 class RoleController extends Controller
 {
@@ -14,7 +15,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        $roles = Role::all();
+        return view('role.index', ['roles' => $roles]);
     }
 
     /**
@@ -24,7 +26,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        return view('role.create');
     }
 
     /**
@@ -35,7 +37,10 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $role = new Role();
+        $role->role = $request->role;
+        $role->save();
+        return redirect('/role');
     }
 
     /**
@@ -57,7 +62,7 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        //
+        return view('role.edit', ['role' => $role]);
     }
 
     /**
@@ -69,7 +74,9 @@ class RoleController extends Controller
      */
     public function update(Request $request, Role $role)
     {
-        //
+        $role->role = $request->role;
+        $role->save();
+        return redirect('/role');
     }
 
     /**
@@ -80,6 +87,7 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        //
+        $role->delete();
+        return redirect('/role');
     }
 }
