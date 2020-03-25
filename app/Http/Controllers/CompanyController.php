@@ -67,6 +67,7 @@ class CompanyController extends Controller
     public function edit($id)
     {
         //
+        return view('company.edit')->with('company',Company::find($id));
     }
 
     /**
@@ -79,6 +80,11 @@ class CompanyController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $company=Company::find($id);
+        $company->company_registered_name = $request->company_registered_name;
+        $company->brand_name = $request->brand_name;
+        $company->save();
+        return redirect(route('company.index'));
     }
 
     /**
@@ -90,5 +96,9 @@ class CompanyController extends Controller
     public function destroy($id)
     {
         //
+        $company=Company::find($id);
+        $company->delete();
+        return redirect(route('company.index'));
+        
     }
 }

@@ -6,20 +6,28 @@
 </div>
 
 <div class="card card-default">
-    <div class="card-header">
-        Revenue
+    <div class="card-header text-center font-weight-bold">
+        Company
     </div>
     <div class="card-body">
-        <table class="table">
+        <table class="table table-stripped">
             <thead>
                 <th>Company Registered Name:</th>
                 <th>Brand Name:</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </thead>
             <tbody>
                 @foreach($company as $companies)
                 <tr>
                     <td>{{ $companies->company_registered_name }}</td>
                     <td>{{ $companies->brand_name }}</td>
+                    <td><a href="{{ route('company.edit',$companies->id) }}" class="btn btn-info">Update</a></td>
+                    <td><form action="{{ route('company.destroy',$companies->id) }}" method="post">
+                     <input class="btn btn-info" type="submit" value="Delete" />
+                     {{ method_field('DELETE') }}
+                    {{ csrf_field() }}
+                    </form></td>
                 </tr>
                 @endforeach
             </tbody>

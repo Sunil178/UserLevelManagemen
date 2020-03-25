@@ -68,6 +68,7 @@ class RevenueController extends Controller
     public function edit($id)
     {
         //
+        return view('revenue.edit')->with('revenue',Revenue::find($id));
     }
 
     /**
@@ -80,6 +81,11 @@ class RevenueController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $revenue=Revenue::find($id);
+        $revenue->company_name=$request->company_name;
+        $revenue->invoice_amt=$request->invoice_amt;
+        $revenue->save();
+        return redirect(route('revenue.index'));
     }
 
     /**
@@ -91,5 +97,8 @@ class RevenueController extends Controller
     public function destroy($id)
     {
         //
+        $revenue=Revenue::find($id);
+        $revenue->delete();
+         return redirect(route('revenue.index'));   
     }
 }
