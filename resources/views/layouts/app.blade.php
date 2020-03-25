@@ -88,13 +88,14 @@
                             <li class="list-group-item">
                                 <a href="{{ route('revenue.index') }}">Revenue</a>
                             </li>
-
+                            @can('isSuperAdmin')
                             <li class="list-group-item">
                                 <a href="/role/">Show Role</a>
                             </li>
                             <li class="list-group-item">
                             <a href="/permission/">Show Permission</a>
                             </li>
+                            @endcan
                         </ul>
 
                     </div>
