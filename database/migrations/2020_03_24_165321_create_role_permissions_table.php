@@ -6,12 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateRolePermissionsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
+    /** * Run the migrations. * * @return void */ public function up()
     {
         Schema::create('role_permissions', function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -23,13 +18,7 @@ class CreateRolePermissionsTable extends Migration
             $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
+    /** * Reverse the migrations. * * @return void */ public function down()
     {
         Schema::dropIfExists('role_permissions');
     }
