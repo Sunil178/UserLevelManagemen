@@ -88,6 +88,13 @@
                             <li class="list-group-item">
                                 <a href="{{ route('revenue.index') }}">Revenue</a>
                             </li>
+
+                            <li class="list-group-item">
+                                <a href="/role/">Show Role</a>
+                            </li>
+                            <li class="list-group-item">
+                            <a href="/permission/">Show Permission</a>
+                            </li>
                         </ul>
 
                     </div>
