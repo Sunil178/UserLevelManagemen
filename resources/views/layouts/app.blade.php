@@ -71,7 +71,46 @@
             </div>
         </nav>
 
-        @yield('content')
+        <main class="py-4">
+            @auth
+            <div class="container">
+                @if(session()->has('success'))
+                <div class="alert alert-success text-center ">
+                    {{ session()->get('success') }}
+                </div>
+                @endif
+                <div class="row">
+                    <div class="col-md-4">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <a href="{{ route('company.index') }}">Company</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="{{ route('revenue.index') }}">Revenue</a>
+                            </li>
+                            @can('isSuperAdmin')
+                            <li class="list-group-item">
+                                <a href="/role/">Show Role</a>
+                            </li>
+                            <li class="list-group-item">
+                            <a href="/permission/">Show Permission</a>
+                            </li>
+                            @endcan
+                        </ul>
+
+                    </div>
+                    <div class="col-md-8">
+                        @yield('content')
+                    </div>
+                </div>
+            </div>
+            @else
+            <div class="col-md-12">
+                @yield('content')
+            </div>
+            @endauth
+        </main>
+
     </div>
 
     <!-- Scripts -->

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Role;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -26,4 +27,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function isSuperAdmin() {
+        $role = Role::find($this->role_id);
+        if ($role->role == "Super Admin")
+            return true;
+        else
+            return false;
+    }
 }

@@ -12,12 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('index');
+})->middleware('auth');
 
 Auth::routes();
 
-Route::resource('/role', 'RoleController');
-Route::resource('/permission', 'PermissionController');
-Route::resource('/role-permission', 'RolePermissionController');
+
+Route::resource('/role', 'RoleController')->middleware('super');
+Route::resource('/permission', 'PermissionController')->middleware('super');
+Route::resource('/role-permission', 'RolePermissionController')->middleware('super');
+
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('company','CompanyController')->middleware('auth');
+Route::resource('revenue','RevenueController')->middleware('auth');
