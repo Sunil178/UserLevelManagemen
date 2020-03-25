@@ -14,7 +14,8 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        //
+        $permissions = Permission::all();
+        return view('permission.index', ['permissions' => $permissions]);
     }
 
     /**
@@ -24,7 +25,7 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        //
+        return view('permission.create');
     }
 
     /**
@@ -35,7 +36,10 @@ class PermissionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $permission = new Permission();
+        $permission->module = $request->module;
+        $permission->save();
+        return redirect('/permission');
     }
 
     /**
@@ -57,7 +61,7 @@ class PermissionController extends Controller
      */
     public function edit(Permission $permission)
     {
-        //
+        return view('permission.edit', ['permission' => $permission]);
     }
 
     /**
@@ -69,7 +73,9 @@ class PermissionController extends Controller
      */
     public function update(Request $request, Permission $permission)
     {
-        //
+        $permission->module = $request->module;
+        $permission->save();
+        return redirect('/permission');
     }
 
     /**
@@ -80,6 +86,7 @@ class PermissionController extends Controller
      */
     public function destroy(Permission $permission)
     {
-        //
+        $permission->delete();
+        return redirect('/permission');
     }
 }
