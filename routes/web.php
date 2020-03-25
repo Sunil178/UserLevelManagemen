@@ -12,12 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('index');
+})->middleware('auth');
 
 Auth::routes();
 
-Route::resource('/role', 'RoleController');
+Route::resource('/role', 'RoleController')->middleware('auth');
 Route::resource('/permission', 'PermissionController')->middleware('auth');
 Route::resource('/role-permission', 'RolePermissionController')->middleware('auth');
 
