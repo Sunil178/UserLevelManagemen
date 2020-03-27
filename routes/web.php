@@ -17,10 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
-Route::resource('/role', 'RoleController')->middleware('super');
-Route::resource('/permission', 'PermissionController')->middleware('super');
-Route::resource('/role-permission', 'RolePermissionController')->middleware('super');
+Route::resource('/role', 'RoleController')->middleware('super', 'auth');
+Route::resource('/permission', 'PermissionController')->middleware('super', 'auth');
+Route::get('/role-permission', 'RolePermissionController@index')->middleware('super', 'auth');
+Route::post('/role-permission-store', 'RolePermissionController@store')->middleware('super', 'auth');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('company','CompanyController')->middleware('auth');
