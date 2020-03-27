@@ -6,8 +6,8 @@
 </div>
 
 <div class="card card-default">
-    <div class="card-header text-center">
-        
+    <div class="card-header text-center font-weight-bold">
+        REVENUE
     </div>
     <div class="card-body">
         <table class="table">
@@ -24,7 +24,7 @@
                     <td>{{ $revenues->invoice_amt }}</td>
                      <td><a href="{{ route('revenue.edit',$revenues->id) }}" class="btn btn-info">Update</a></td>
                     <td><form action="{{ route('revenue.destroy',$revenues->id) }}" method="post">
-                     <input class="btn btn-info" type="submit" value="Delete" />
+                     <input class="btn btn-danger" type="submit" value="Delete" />
                      {{ method_field('DELETE') }}
                     {{ csrf_field() }}
                     </form></td>

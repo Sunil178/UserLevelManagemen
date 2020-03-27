@@ -15,8 +15,7 @@ class RolePermissionMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->isSuperAdmin())
-            return $next($request);
-        abort(404, "You are not authorized to see this page");
+
+
     }
 }

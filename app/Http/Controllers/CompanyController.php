@@ -38,11 +38,11 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
         //
+        
         Company::create([
         'company_registered_name' => $request->company_registered_name,
         'brand_name' => $request->brand_name,
-        ]);
-
+        ]); 
         $request->session()->flash('success', 'Succesfully Created The COmpany');
         return redirect(route('company.index'));
     }

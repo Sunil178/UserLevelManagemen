@@ -97,7 +97,6 @@
                             </li>
                             @endcan
                         </ul>
-
                     </div>
                     <div class="col-md-8">
                         @yield('content')
