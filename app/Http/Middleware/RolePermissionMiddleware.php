@@ -15,7 +15,8 @@ class RolePermissionMiddleware
      */
     public function handle($request, Closure $next)
     {
+        return $next($request);
 
-
+        abort(403);
     }
 }
