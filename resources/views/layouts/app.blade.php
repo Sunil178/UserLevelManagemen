@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -95,9 +96,11 @@
                             <li class="list-group-item">
                             <a href="/permission/">Show Permission</a>
                             </li>
+                            <li class="list-group-item">
+                            <a href="/role-permission/">Show Role Permission</a>
+                            </li>
                             @endcan
                         </ul>
-
                     </div>
                     <div class="col-md-8">
                         @yield('content')
