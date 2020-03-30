@@ -17,7 +17,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
 Route::resource('/role', 'RoleController')->middleware('super');
 Route::resource('/permission', 'PermissionController')->middleware('super');
 Route::resource('/role-permission', 'RolePermissionController')->middleware('super');
