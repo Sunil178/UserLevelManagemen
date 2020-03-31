@@ -7,7 +7,7 @@
 		border: 1px solid black;
 		width: 2%;
 	}
-</style>
+</style>	
     <script src="{{ asset('/js/jquery.min.js') }}"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css">
@@ -127,7 +127,6 @@
     })
 
 </script>
-
 
 </body>
 </html>
